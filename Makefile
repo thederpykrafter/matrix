@@ -5,15 +5,19 @@ LFLAGS = -lncurses
 OUT_FILE = matrix
 OBJS = main.o matrix.o ui.o
 
-all: main
+all: matrix
 
 # $@: $^
-main: $(OBJS)
+matrix: $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LFLAGS)
 
 # $@: $^
 %.o: %.c
 	$(CC) $(CFLAGS) -c $^ -o $@
+
+install:
+	cp matrix /usr/bin
+	cp matrix /data/data/com.termux/files/usr/bin
 
 clean:
 	rm -rf *.o main
