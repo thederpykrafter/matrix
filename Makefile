@@ -16,8 +16,9 @@ matrix: $(OBJS)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
 install:
-	cp matrix /usr/bin
-	cp matrix /data/data/com.termux/files/usr/bin
+	echo "cp matrix /usr/bin"
+	@cp matrix /usr/bin
+	@cp matrix /data/data/com.termux/files/usr/bin
 
 clean:
 	rm -rf *.o main
